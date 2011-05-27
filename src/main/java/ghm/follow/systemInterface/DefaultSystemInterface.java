@@ -19,14 +19,15 @@ public class DefaultSystemInterface implements SystemInterface {
 		this.app = app;
 	}
 
-	public File getFileFromUser() {
+	public File[] getFilesFromUser() {
 		app.setCursor(Cursor.WAIT_CURSOR);
 		JFileChooser chooser = new JFileChooser(app.getAttributes()
 				.getLastFileChooserDirectory());
+		chooser.setMultiSelectionEnabled(true);
 		app.setCursor(Cursor.DEFAULT_CURSOR);
 		int returnVal = chooser.showOpenDialog(app.getFrame());
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
-			return chooser.getSelectedFile();
+			return chooser.getSelectedFiles();
 		}
 		return null;
 	}

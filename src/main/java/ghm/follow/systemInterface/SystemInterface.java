@@ -18,9 +18,9 @@ public interface SystemInterface {
 	 * appropriate file selection mechanism. However, it can be overriden by
 	 * tests to return temporary files.
 	 * 
-	 * @return the File selected by the user
+	 * @return the File[] selected by the user
 	 */
-	public File getFileFromUser();
+	public File[] getFilesFromUser();
 
 	/**
 	 * Used in lieu of System.exit();

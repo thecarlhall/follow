@@ -5,15 +5,15 @@ import ghm.follow.systemInterface.SystemInterface;
 import java.io.File;
 
 public class MockSystemInterface implements SystemInterface {
-	private File fileFromUser;
+	private File[] filesFromUser;
 	private boolean exitCalled;
 
-	public File getFileFromUser() {
-		return fileFromUser;
+	public File[] getFilesFromUser() {
+		return filesFromUser;
 	}
 
-	public void setFileFromUser(File file) {
-		fileFromUser = file;
+	public void setFilesFromUser(File[] file) {
+		filesFromUser = file;
 	}
 
 	public void exit(int code) {

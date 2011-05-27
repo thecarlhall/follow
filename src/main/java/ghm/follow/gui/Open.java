@@ -54,15 +54,17 @@ public class Open extends FollowAppAction {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		File f = null;
+		File[] f = null;
 		try {
 			if (recentFile != null) {
-				f = recentFile;
+//				f = new File[] {recentFile};
 				getApp().openFile(recentFile);
 			} else {
-				f = getApp().getSystemInterface().getFileFromUser();
-				if (f != null) {
-					getApp().openFile(f);
+				f = getApp().getSystemInterface().getFilesFromUser();
+				if (f != null && f.length > 0) {
+					for (int i = 0; i < f.length; i++) {
+						getApp().openFile(f[i]);
+					}
 				}
 			}
 		} catch (FileNotFoundException ex) {

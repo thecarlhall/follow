@@ -40,8 +40,8 @@ public class BottomT extends AppLaunchingTestCase {
 	@Test
 	public void testEnabled() throws Exception {
 		assertFalse(app.getAction(Bottom.NAME).isEnabled());
-		File file = createTempFile();
-		systemInterface.setFileFromUser(file);
+		File[] file = new File[] { createTempFile() };
+		systemInterface.setFilesFromUser(file);
 		invokeAction(app.getAction(Open.NAME));
 		assertTrue(app.getAction(Bottom.NAME).isEnabled());
 		invokeAction(app.getAction(Close.NAME));
